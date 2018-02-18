@@ -399,12 +399,56 @@
         <h2>Примеры наших работ</h2>
 
         <div class="slider_ex">
-            <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/1.jpg" alt="">
+          <!-- <div class="" id=""> -->
+            <?php
+            // параметры по умолчанию
+            // выбираем записи которые нас интересуют
+            $args = array(
+              'numberposts' => 0,
+              'category_name'    => 'action',
+              'order'       => 'ASC',
+              'post_type'   => 'post',
+              'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+            );
+            // помещаем все записи в переменную $posts
+            $posts = get_posts( $args );
+            // Запускаем цикл в нем перебераем все посты
+            foreach($posts as $post){ setup_postdata($post);
+              ?>
+              <!--html разметка в которую мы вставляем информацию о постах-->
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                  <div class="shop-card">
+                    <?php
+                    if ( has_post_thumbnail() ) {
+                       the_post_thumbnail();
+                     }else{
+                       echo "<img src='" . get_template_directory_uri() ."/assets/img/not-image.png' alt=''/> ";
+                     }
+                     ?>
+                    <h3><?php the_title(); ?></h3>
+                    <p>Площадь  <?php the_field('area'); ?> м<sup>2</sup></p>
+                    <span> <?php the_field('old_price'); ?></span>
+                    <b><?php the_field('new_price'); ?> грн.</b>
+                    <button type="submit" class="popup-btn button-small">Оставить заявку</button>
+                  </div>
+                </div>
+
+
+              <?php
+                // формат вывода
+            }
+
+            wp_reset_postdata(); // сброс
+
+             ?>
+          <!-- </div> -->
+            <!-- <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/1.jpg" alt="">
             <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/2.jpg" alt="">
             <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/3.jpg" alt="">
             <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/2.jpg" alt="">
             <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/1.jpg" alt="">
-            <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/3.jpg" alt="">
+            <img src="<?php echo bloginfo('template_url'); ?>/assets/img/example/3.jpg" alt=""> -->
         </div>
 
       </div>
@@ -515,14 +559,58 @@
           </div>
         </div>
       </div>
-    </section>
+    </<section>
 
     <section class="review" id="review">
       <div class="container">
         <h2>Клиенты о нас</h2>
         <div class="row">
           <div class="slider_ex">
-            <div class="review-block">
+            <?php
+            // параметры по умолчанию
+            // выбираем записи которые нас интересуют
+            $args = array(
+              'numberposts' => 0,
+              'category_name'    => 'reviews',
+              'order'       => 'ASC',
+              'post_type'   => 'post',
+              'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+            );
+            // помещаем все записи в переменную $posts
+            $posts = get_posts( $args );
+            // Запускаем цикл в нем перебераем все посты
+            foreach($posts as $post){ setup_postdata($post);
+              ?>
+              <!--html разметка в которую мы вставляем информацию о постах-->
+              <div class="review-block">
+                <div class="media review-avatar">
+                  <div class="media-left">
+                    <?php
+                    if ( has_post_thumbnail() ) {
+                       the_post_thumbnail();
+                     }else{
+                       echo "<img src='" . get_template_directory_uri() ."/assets/img/not-image.png' alt=''/> ";
+                     }
+                     ?>
+                  </div>
+                  <div class="media-body">
+                    <p class="review-avatar-name"><?php the_title(); ?></p>
+                  </div>
+                </div>
+                <div class="review-block-text">
+                  <?php the_content( $more_link_text, $strip_teaser ); ?>
+                </div>
+              </div>
+
+
+              <?php
+                // формат вывода
+            }
+
+            wp_reset_postdata(); // сброс
+
+             ?>
+            <!-- <div class="review-block">
               <div class="media review-avatar">
                 <div class="media-left">
                   <img class="media-object" src="<?php echo bloginfo('template_url'); ?>/assets/img/review/ava.png" alt="Анна Маслова">
@@ -563,35 +651,12 @@
                 <h3>Вопрос по недвижимости</h3>
                 <p>Если бы не компания «Найдем Адвоката», то моя семья могла бы совершить роковую ошибку и попасть в лапы к аферистам. Юрист за 2 дня смог досудебно полностью урегулировать конфликт. Спасибо Вам</p>
               </div>
-            </div>
-            <div class="review-block">
-              <div class="media review-avatar">
-                <div class="media-left">
-                  <img class="media-object" src="<?php echo bloginfo('template_url'); ?>/assets/img/review/ava.png" alt="Анна Маслова">
-                </div>
-                <div class="media-body">
-                  <p class="review-avatar-name">Анна Маслова, Москва</p>
-                </div>
-              </div>
-              <div class="review-block-text">
-                <h3>Вопрос по недвижимости</h3>
-                <p>Если бы не компания «Найдем Адвоката», то моя семья могла бы совершить роковую ошибку и попасть в лапы к аферистам. Юрист за 2 дня смог досудебно полностью урегулировать конфликт. Спасибо Вам</p>
-              </div>
-            </div>
-            <div class="review-block">
-              <div class="media review-avatar">
-                <div class="media-left">
-                  <img class="media-object" src="<?php echo bloginfo('template_url'); ?>/assets/img/review/ava.png" alt="Анна Маслова">
-                </div>
-                <div class="media-body">
-                  <p class="review-avatar-name">Анна Маслова, Москва</p>
-                </div>
-              </div>
-              <div class="review-block-text">
-                <h3>Вопрос по недвижимости</h3>
-                <p>Если бы не компания «Найдем Адвоката», то моя семья могла бы совершить роковую ошибку и попасть в лапы к аферистам. Юрист за 2 дня смог досудебно полностью урегулировать конфликт. Спасибо Вам</p>
-              </div>
-            </div>
+            </div> -->
+          </div>
+          <deactivate_sitewide_plugin( $plugin = false ) class="slider_ex">
+
+            </deactivate_sitewide_plugin>
+
           </div>
         </div>
       </div>
