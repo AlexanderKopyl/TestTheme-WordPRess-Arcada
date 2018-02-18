@@ -45,7 +45,7 @@
           <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
             <div class="wrap">
               <div class="wrap-block">
-                <a href="tel:+79106287744" class="header-phone"><?php the_field('tel_header'); ?></a>
+                <a href="tel:+380630674453" class="header-phone"><?php the_field('tel_header'); ?></a>
               </div>
             </div>
           </div>
@@ -82,8 +82,10 @@
             <div class="col-md-7 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
               <b class="main-cta"><?php the_field('main_action'); ?></b>
               <b class="main-cta-sub"><?php the_field('subaction'); ?></b>
-
-              <form method="post" name="first-form" action="mailer/smart.php" class="form">
+                <div class="form">
+                  <?php echo do_shortcode('[contact-form-7 id="140" title="Без названия"]') ?>
+                </div>
+              <!-- <form method="post" name="first-form" action="mailer/smart.php" class="form">
 
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <input name="user_name" required type="text" placeholder="Ваше имя">
@@ -101,7 +103,7 @@
                   <p>Наш менеджер перезвонит Вам в течене 15 минут для консультации.<br>* при заказе строительства дома</p>
                 </div>
 
-              </form>
+              </form> -->
 
             </div>
 
@@ -659,7 +661,7 @@
 
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </section>
 
     <div class="contacts" id="contacts">
@@ -668,7 +670,7 @@
           <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0">
             <div class="contacts-block">
               <img src="<?php echo bloginfo('template_url'); ?>/assets/img/contacts/1.png" alt="">
-              <a class="contacts-phone" href="tel:+79106287744"><?php the_field('tel_footer'); ?></a>
+              <a class="contacts-phone" href="tel:+380630674453"><?php the_field('tel_footer'); ?></a>
             </div>
           </div>
           <div class="col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-12 col-xs-offset-0">
@@ -688,7 +690,7 @@
     </div>
 
     <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577.3068912428816!2d39.739776823609!3d54.63521087449768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4149e3ca7d798a8b%3A0xe7cd4dc08fecf2ef!2z0YPQuy4g0KHQvtC70L3QtdGH0L3QsNGPLCAxMiwg0KDRj9C30LDQvdGMLCDQoNGP0LfQsNC90YHQutCw0Y8g0L7QsdC7LiwgMzkwMDAw!5e0!3m2!1sru!2sru!4v1511309069060"  allowfullscreen></iframe>
+      <?php echo do_shortcode('[gmap-embed id="137"]') ?>
     </div>
 
     <section class="question" id="question">
@@ -709,12 +711,16 @@
             Заинтересовало?
           </h4>
           <p>Оставьте свои контактные данные <br>для связи</p>
-          <form method="post" name="third-form" action="mailer/smart.php" class="form">
+        <div class="form">
+            <?php echo do_shortcode('[contact-form-7 id="139" title="Контактная форма 1"]') ?>
+
+        </div>
+          <!-- <form method="post" name="third-form" action="mailer/smart.php" class="form">
               <input name="user_name" required type="text" placeholder="Ваше имя">
               <input name="user_phone" id="phone-3" required type="text" placeholder="Ваш телефон">
               <button id="third-btn" type="submit" class="popup-thanks-btn">Оставить заявку</button>
              <p>Наш менеджер перезвонит Вам в течене 15 минут для консультации.<br>* при заказе строительства дома</p>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
@@ -779,7 +785,7 @@
       });
     </script>
     <!-- Формы -->
-    <script>
+    <!-- <script>
       $(function() {
         $('form').submit(function(e) {
           var $form = $(this);
@@ -800,15 +806,15 @@
           e.preventDefault();
         });
       });
-    </script>
+    </script> -->
     <!-- Маска -->
     <!-- <script src="js/jquery.maskedinput.min.js"></script> -->
     <script>
       jQuery(function($){
-         $("#phone-1").mask("+7 (999) 999-9999");
-         $("#phone-2").mask("+7 (999) 999-9999");
-         $("#phone-3").mask("+7 (999) 999-9999");
-         $("#phone-4").mask("+7 (999) 999-9999");
+         $("#phone-1").mask("+38 (999) 999-9999");
+         $("#phone-2").mask("+38 (999) 999-9999");
+         $("#phone-3").mask("+38 (999) 999-9999");
+         $("#phone-4").mask("+38 (999) 999-9999");
       });
     </script>
     <!-- Слайдер -->

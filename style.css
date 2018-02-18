@@ -120,7 +120,7 @@ textarea:focus {
   font-family: 'Gotham_reg', sans-serif;
   font-size: 1.2rem;
 }
-.form button {
+.form input[type="submit"] {
   margin-bottom: 2rem;
   width: 100%;
   border: none;
