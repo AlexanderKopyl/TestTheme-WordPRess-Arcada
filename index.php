@@ -559,7 +559,7 @@
           </div>
         </div>
       </div>
-    </<section>
+    </section>
 
     <section class="review" id="review">
       <div class="container">
